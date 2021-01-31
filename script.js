@@ -1,13 +1,16 @@
 const pinGenerator = document.getElementById('pin-generator');
 const pinTypeInput = document.getElementById('type-input');
-const matchNotify = document.getElementById('notify-match');
-const NotMatchNotify = document.getElementById('notify-not-match');
 
 function generatePin() {
-  let randomPin = Math.floor(Math.random() * 10000);
-  pinGenerator.value = randomPin;
-  matchNotify.style.display = 'none';
-  NotMatchNotify.style.display = 'none';
+  let randomPin = Math.floor(Math.random() * 10000) + '';
+  if (randomPin.length === 4) {
+    pinGenerator.value = randomPin;
+  } else {
+    generatePin();
+  }
+
+  displayStyle('notify-match', 'none');
+  displayStyle('notify-not-match', 'none');
 }
 
 function typePin(value) {
@@ -61,11 +64,15 @@ function typePin(value) {
 
 function typePinBtn() {
   if (pinGenerator.value === pinTypeInput.value) {
-    NotMatchNotify.style.display = 'none';
-    matchNotify.style.display = 'block';
+    displayStyle('notify-match', 'block');
+    displayStyle('notify-not-match', 'none');
     pinGenerator.value = '';
     pinTypeInput.value = '';
   } else {
-    NotMatchNotify.style.display = 'block';
+    displayStyle('notify-not-match', 'block');
   }
+}
+
+function displayStyle(id, property) {
+  document.getElementById(id).style.display = property;
 }
