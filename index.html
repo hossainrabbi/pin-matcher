@@ -17,37 +17,45 @@
       <div class="row">
         <div class="col-md-6">
           <div class="pin-generator half-width">
-            <input class="form-control" type="text" />
-            <button class="generate-btn">Generate Pin</button>
+            <input id="pin-generator" class="form-control" type="text" />
+            <button onclick="generatePin()" class="generate-btn">
+              Generate Pin
+            </button>
           </div>
         </div>
         <div class="col-md-6">
           <div class="input-section half-width">
-            <input class="form-control" type="text" />
+            <input id="type-input" class="form-control" type="text" />
             <div class="numbers">
               <div class="calc-body">
                 <div class="calc-button-row">
-                  <div class="button">7</div>
-                  <div class="button">8</div>
-                  <div class="button">9</div>
+                  <button onclick="typePin(7)" class="button">7</button>
+                  <button onclick="typePin(8)" class="button">8</button>
+                  <button onclick="typePin(9)" class="button">9</button>
                 </div>
                 <div class="calc-button-row">
-                  <div class="button">4</div>
-                  <div class="button">5</div>
-                  <div class="button">6</div>
+                  <button onclick="typePin(4)" class="button">4</button>
+                  <button onclick="typePin(5)" class="button">5</button>
+                  <button onclick="typePin(6)" class="button">6</button>
                 </div>
                 <div class="calc-button-row">
-                  <div class="button">1</div>
-                  <div class="button">2</div>
-                  <div class="button">3</div>
+                  <button onclick="typePin(1)" class="button">1</button>
+                  <button onclick="typePin(2)" class="button">2</button>
+                  <button onclick="typePin(3)" class="button">3</button>
                 </div>
                 <div class="calc-button-row">
-                  <div class="button">&#60;</div>
-                  <div class="button">0</div>
-                  <div class="button">C</div>
+                  <button onclick="typePin('<')" class="button">&#60;</button>
+                  <button onclick="typePin(0)" class="button">0</button>
+                  <button onclick="typePin('c')" class="button">C</button>
                 </div>
                 <div>
-                  <button type="submit" class="submit-btn">Submit</button>
+                  <button
+                    onclick="typePinBtn()"
+                    type="submit"
+                    class="submit-btn"
+                  >
+                    Submit
+                  </button>
                   <p class="action-left">3 try left</p>
                 </div>
               </div>
@@ -56,8 +64,12 @@
         </div>
       </div>
       <div class="notify-section">
-        <p class="notify">❌ Pin Didn't Match, Please try again</p>
-        <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+        <p id="notify-not-match" class="notify">
+          ❌ Pin Didn't Match, Please try again
+        </p>
+        <p id="notify-match" class="notify">
+          ✅ Pin Matched... Secret door is opening for you
+        </p>
       </div>
     </div>
 
