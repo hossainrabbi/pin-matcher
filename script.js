@@ -81,11 +81,12 @@ function typePinBtn() {
   } else {
     displayStyle('notify-not-match', 'block');
     displayStyle('action-left', 'block');
-    if (tryCountNumber < 2) {
+    if (tryCountNumber > 1) {
+      tryCount.innerText = tryCountNumber - 1;
+    } else {
       alert('Please Enter Again Generate Pin Button');
       displayStyle('action-left', 'none');
-    } else {
-      tryCount.innerText = tryCountNumber - 1;
+      window.location.reload();
     }
   }
 }
