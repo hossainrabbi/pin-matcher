@@ -86,7 +86,7 @@ function typePinBtn() {
     } else {
       alert('Please Enter Again Generate Pin Button');
       displayStyle('action-left', 'none');
-      window.location.reload();
+      pinGenerator.value = '';
     }
   }
 }
