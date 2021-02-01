@@ -32,17 +32,23 @@ body {
   box-shadow: none;
 }
 
-input[type='text'] {
+input[type='number'] {
   background-color: #3d4153;
   padding: 10px 0px;
   color: #ffffff;
+  font-size: 20px;
   width: 80%;
   margin: 0 auto;
   border: 2px solid #858299;
   height: 50px;
   padding: 10px;
 }
-input[type='text']:focus {
+
+.pin-generator .form-control[readonly] {
+  background-color: #3d4153;
+  opacity: 1;
+}
+input[type='number']:focus {
   background-color: #3d4153;
   color: #fff;
   font-size: 20px;
@@ -105,4 +111,5 @@ input[type='text']:focus {
 .action-left {
   color: #ff3c5f;
   margin-top: 10px;
+  display: none;
 }

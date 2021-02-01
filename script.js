@@ -11,6 +11,7 @@ function generatePin() {
 
   displayStyle('notify-match', 'none');
   displayStyle('notify-not-match', 'none');
+  displayStyle('action-left', 'none');
 }
 
 function typePin(value) {
@@ -63,13 +64,23 @@ function typePin(value) {
 }
 
 function typePinBtn() {
+  const tryCount = document.getElementById('try');
+  const tryCountNumber = parseInt(tryCount.innerText);
   if (pinGenerator.value === pinTypeInput.value) {
-    displayStyle('notify-match', 'block');
-    displayStyle('notify-not-match', 'none');
-    pinGenerator.value = '';
-    pinTypeInput.value = '';
+    if (pinGenerator.value == '') {
+      alert('Please Enter Generate Pin Button');
+    } else {
+      displayStyle('notify-match', 'block');
+      displayStyle('notify-not-match', 'none');
+      displayStyle('action-left', 'none');
+      pinGenerator.value = '';
+      pinTypeInput.value = '';
+      tryCount.innerText = 0;
+    }
   } else {
     displayStyle('notify-not-match', 'block');
+    displayStyle('action-left', 'block');
+    tryCount.innerText = tryCountNumber + 1;
   }
 }
 
