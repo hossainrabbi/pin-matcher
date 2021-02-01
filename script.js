@@ -1,5 +1,6 @@
 const pinGenerator = document.getElementById('pin-generator');
 const pinTypeInput = document.getElementById('type-input');
+const tryCount = document.getElementById('try');
 
 function generatePin() {
   let randomPin = Math.floor(Math.random() * 10000) + '';
@@ -12,6 +13,7 @@ function generatePin() {
   displayStyle('notify-match', 'none');
   displayStyle('notify-not-match', 'none');
   displayStyle('action-left', 'none');
+  tryCount.innerText = 0;
 }
 
 function typePin(value) {
@@ -64,7 +66,6 @@ function typePin(value) {
 }
 
 function typePinBtn() {
-  const tryCount = document.getElementById('try');
   const tryCountNumber = parseInt(tryCount.innerText);
   if (pinGenerator.value === pinTypeInput.value) {
     if (pinGenerator.value == '') {
@@ -75,7 +76,6 @@ function typePinBtn() {
       displayStyle('action-left', 'none');
       pinGenerator.value = '';
       pinTypeInput.value = '';
-      tryCount.innerText = 0;
     }
   } else {
     displayStyle('notify-not-match', 'block');
