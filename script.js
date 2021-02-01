@@ -13,7 +13,8 @@ function generatePin() {
   displayStyle('notify-match', 'none');
   displayStyle('notify-not-match', 'none');
   displayStyle('action-left', 'none');
-  tryCount.innerText = 0;
+  pinTypeInput.value = '';
+  tryCount.innerText = 4;
 }
 
 function typePin(value) {
@@ -80,7 +81,12 @@ function typePinBtn() {
   } else {
     displayStyle('notify-not-match', 'block');
     displayStyle('action-left', 'block');
-    tryCount.innerText = tryCountNumber + 1;
+    if (tryCountNumber < 2) {
+      alert('Please Enter Again Generate Pin Button');
+      displayStyle('action-left', 'none');
+    } else {
+      tryCount.innerText = tryCountNumber - 1;
+    }
   }
 }
 
